@@ -658,7 +658,7 @@ class MappingKernelManager(MultiKernelManager):
 class AsyncMappingKernelManager(MappingKernelManager, AsyncMultiKernelManager):
     @default("kernel_manager_class")
     def _default_kernel_manager_class(self):
-        return "jupyter_server.services.kernels.kernelmanager.ServerKernelManager"
+        return "jupyter_server_kernels.kernels.kernelmanager.ServerKernelManager"
 
     @validate("kernel_manager_class")
     def _validate_kernel_manager_class(self, proposal):
