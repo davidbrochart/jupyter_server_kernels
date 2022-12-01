@@ -8,6 +8,7 @@ from .kernels.connection.channels import ZMQChannelsWebsocketConnection
 from .kernels.connection.base import BaseKernelWebsocketConnection
 from .kernels.kernelmanager import AsyncMappingKernelManager, MappingKernelManager
 from .kernelspecs import handlers as kernelspecs_handlers
+from .gateway import handlers as gateway_handlers
 from .sessions import handlers as sessions_handlers
 from .sessions.sessionmanager import SessionManager
 
@@ -139,6 +140,7 @@ class KernelsExtensionApp(ExtensionApp):
         self.handlers.extend(kernels_handlers.default_handlers)
         self.handlers.extend(kernelspecs_handlers.default_handlers)
         self.handlers.extend(sessions_handlers.default_handlers)
+        # TODO: gateway
         self.serverapp.web_app.settings["kernels_available"] = self.settings[
             "kernels_available"
         ]
